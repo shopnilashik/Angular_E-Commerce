@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl,Validators } from '@angular/forms';
 import { UserDataService } from '../services/user-data.service';
 
 @Component({
@@ -10,21 +10,35 @@ import { UserDataService } from '../services/user-data.service';
 export class RegisterComponent implements OnInit {
   constructor(private userData: UserDataService) {}
 
-  ngOnInit(): void { }
-  
+  ngOnInit(): void {}
+
+  alart: boolean = false;
 
   addUser = new FormGroup({
-    name: new FormControl(''),
-    email: new FormControl(''),
-    password: new FormControl(''),
+    name: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required]),
   });
 
-  addUserData() { 
+  addUserData() {
     this.userData.saveUserData(this.addUser.value).subscribe((result) => {
-       console.log("hello");
+      // console.log(result);
       this.addUser.reset();
-      
+      this.alart = true;
     });
-  };
+  }
+
+  get nameField() {
+    return this.addUser.get('name');
+  }
+  get emailField() {
+    return this.addUser.get('email');
+  }
+  get passwordField() {
+    return this.addUser.get('password');
+  }
+  closeAlart() {
+     this.alart = false;
+   }
 }
 

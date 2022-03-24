@@ -3,7 +3,33 @@
     class="mt-2 container mx-auto bg-gray-50 w-full grid place-items-center h-screen"
   >
     <div class="w-[500px] h-[500px] absolute mt-10">
-      <h1 class="font-bold mb-2 text-2xl">Create a New Account</h1>
+      <h1 class="font-bold mb-2 text-2xl text-center text-gray-500">
+        Create a New Account
+      </h1>
+      <!-- Alart Div -->
+      <div
+        *ngIf="alart"
+        class="bg-green-100 border border-gray-400 text-gray-700 px-4 py-3 rounded relative"
+        (click)="closeAlart()"
+      >
+       
+        <span class="block sm:inline font-bold">A New Account is created.</span>
+        <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+          <svg
+            (click)="closeAlart()"
+            class="fill-current h-6 w-6 text-gray-500"
+            role="button"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+          >
+            <title>Close</title>
+            <path 
+              d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"
+            />
+          </svg>
+        </span>
+      </div>
+      <!-- Alart div end -->
       <div class="mt-2 w-full rounded-2xl bg-gray-50 px-4 ring-2 ring-gray-200">
         <input
           formControlName="name"
@@ -12,14 +38,24 @@
           class="my-3 w-full border-none bg-transparent outline-none focus:outline-none"
         />
       </div>
+      <span
+        class="text-rose-400"
+        *ngIf="nameField && nameField.invalid && nameField.touched"
+        >Name is Empty</span
+      >
       <div class="mt-3 w-full rounded-2xl bg-gray-50 px-4 ring-2 ring-gray-200">
         <input
           formControlName="email"
-          type="text"
+          type="email"
           placeholder="Email"
           class="my-3 w-full border-none bg-transparent outline-none focus:outline-none"
         />
       </div>
+      <span
+        class="text-rose-400"
+        *ngIf="emailField && emailField.invalid && emailField.touched"
+        >Email is Empty</span
+      >
       <div class="mt-3 w-full rounded-2xl bg-gray-50 px-4 ring-2 ring-gray-200">
         <input
           formControlName="password"
@@ -28,8 +64,14 @@
           class="my-3 w-full border-none bg-transparent outline-none focus:outline-none"
         />
       </div>
+      <span
+        class="text-rose-400"
+        *ngIf="passwordField && passwordField.invalid && passwordField.touched"
+        >Password is Empty</span
+      >
       <button
-      type="submit"
+        type="submit"
+        [disabled]="addUser.invalid"
         class="mt-3 w-full rounded-2xl border-b-4 border-b-blue-600 bg-blue-500 py-3 font-bold text-white hover:bg-blue-400 active:translate-y-[0.125rem] active:border-b-blue-400"
       >
         CREATE ACCOUNT
