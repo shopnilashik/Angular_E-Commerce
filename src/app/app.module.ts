@@ -13,6 +13,8 @@ import { ProductsComponent } from './products/products.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MDCDialog } from '@material/dialog';
+
 
 
 @NgModule({
@@ -33,6 +35,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    MDCDialog,
   ],
   providers: [],
   bootstrap: [AppComponent],
