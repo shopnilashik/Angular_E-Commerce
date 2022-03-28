@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminhomeComponent } from './adminhome/adminhome.component'; 
-import { AddproductComponent } from './addproduct/addproduct.component';
+import { AddProductComponent } from './add-product/add-product.component';
+
 
 
 const routes: Routes = [
@@ -10,9 +11,9 @@ const routes: Routes = [
     path: '',
   },
   {
-    component: AddproductComponent,
+    component: AddProductComponent,
     path: 'addproduct',
-  }
+  },
 ];
 
 @NgModule({

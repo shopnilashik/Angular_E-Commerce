@@ -13,7 +13,7 @@ import { ProductsComponent } from './products/products.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MDCDialog } from '@material/dialog';
+
 
 
 
@@ -35,9 +35,9 @@ import { MDCDialog } from '@material/dialog';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    MDCDialog,
   ],
   providers: [],
   bootstrap: [AppComponent],
+  exports: [ProductsComponent, FooterComponent],
 })
 export class AppModule {}

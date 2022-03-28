@@ -7,10 +7,15 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UserDataService {
   url = 'http://localhost/sct/api/users/create.php';
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
+  // Create user
   saveUserData(data: any) {
     console.log(data);
     return this.http.post(this.url, data);
+  }
+  //Show Users  
+  fetchUsers() { 
+    return this.http.get('http://localhost/sct/api/users/read.php');
   }
 }
 
