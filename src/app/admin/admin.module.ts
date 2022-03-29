@@ -5,18 +5,10 @@ import { AdminhomeComponent } from './adminhome/adminhome.component';
 import { FormsModule } from '@angular/forms';
 import { AddProductComponent } from './add-product/add-product.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
-
-
-
-
-
-
-
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AdminhomeComponent, AddProductComponent, EditUserComponent, ],
-  imports: [CommonModule, AdminRoutingModule, FormsModule]
-  
+  declarations: [AdminhomeComponent, AddProductComponent, EditUserComponent],
+  imports: [CommonModule, AdminRoutingModule, FormsModule, ReactiveFormsModule],
 })
 export class AdminModule {}
