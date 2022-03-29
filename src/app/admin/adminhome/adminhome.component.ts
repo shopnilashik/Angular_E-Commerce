@@ -9,7 +9,7 @@ import { UserDataService } from '../../services/user-data.service';
 export class AdminhomeComponent implements OnInit {
   addProductForm: boolean = false;
   users: any = [];
-  constructor(private userData: UserDataService) { }
+  constructor(private userData: UserDataService) {}
 
   ngOnInit(): void {
     this.userData.fetchUsers().subscribe((data) => {
@@ -17,18 +17,21 @@ export class AdminhomeComponent implements OnInit {
     });
   }
 
-
   // Add Product toggle
   addProductFormToogle() {
     this.addProductForm = !this.addProductForm;
   }
 
   deleteUser(id: any) {
-     
-    this.userData.deleteUser(id).subscribe(result => {
-      // console.log(result);
+    this.userData.deleteUser(id).subscribe((result) => {
       this.ngOnInit();
-    })
+    });
+  }
+  getID(id: any) {
+    this.userData.getCurrentUser(id).subscribe((result) => { 
+      console.log(result);
+    });
+    
     
   }
 }
